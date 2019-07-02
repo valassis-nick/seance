@@ -11,7 +11,6 @@
 
     {{! Page Meta }}
     <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
@@ -20,8 +19,8 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{meta_title}}">
     <meta name="twitter:description" content="{{meta_description}}">
-    <meta name="twitter:site" content="http://mark-read.info"> <!-- Change this to your URL -->
-<meta name="twitter:creator" content="@MarkReadM"> <!-- Change this to your Twitter Handel -->
+    <meta name="twitter:site" content="https://engineering.valassis.com"> <!-- Change this to your URL -->
+    <meta name="twitter:creator" content="@Valassis"> <!-- Change this to your Twitter Handel -->
     <meta name="google-site-verification" content="">
     <meta property="fb:admins" content="">
     <meta property="og:type" content="article">
@@ -40,8 +39,11 @@
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
-
-    <a href="{{@blog.url}}" class="logo-seance"><span class="logo" style="background-image: url({{@blog.logo}})"></span></a>
+    {{#is "home"}}
+        <!-- no home logo needed -->
+    {{else}}
+        <a href="{{@site.url}}" class="logo-seance"><span class="logo" style="background-image: url({{@site.icon}})"></span></a>
+    {{/is}}
     {{! Everything else gets inserted here }}
     {{{body}}}
 

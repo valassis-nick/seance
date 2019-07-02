@@ -1,7 +1,12 @@
 {
-    "name": "seance",
-    "version": "1.0.0",
+	"name": "valassis-seance",
+	"keywords": ["ghost-theme", "valassis", "engineering", "software development"],
+    "version": "1.1.0",
     "description": "a medium (theme) for ghost( blog)s",
-    "author": "Max Jackson",
-    "homepage": "https://github.com/MaxJackson/seance"
+	"author": {
+		"name": "Nick Mason",
+		"email": "masonn@valassis.com"
+	},
+	"homepage": "https://design.valassis.com",
+	"config": {"posts_per_page": 25}
 }

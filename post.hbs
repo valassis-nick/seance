@@ -21,8 +21,8 @@
             <div class="post-meta">
                 <h1 class="post-title">{{{title}}}</h1>
                 <div class="cf post-meta-text">
-                    <div class="author-image" style="background-image: url({{author.profile_image}})">Blog Logo</div>
-                    <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{author}}</h4> on
+                    <div class="author-image" style="background-image: url({{authors.[#].profile_image}})">Blog Logo</div>
+                    <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{authors}}</h4> on
                     <time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time>, tagged in {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}
                 </div>
                 <center><a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a></center>
@@ -88,8 +88,8 @@
             <div class="post-meta">
                 <h1 class="post-title">{{{title}}}</h1>
                 <div class="cf post-meta-text">
-                    <div class="author-image" style="background-image: url({{author.profile_image}})">Blog Logo</div>
-                    <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{author}}</h4> on
+                    <div class="author-image" style="background-image: url({{authors.[#].profile_image}})">Blog Logo</div>
+                    <h4 class="author-name" itemprop="author" itemscope itemtype="http://schema.org/Person">{{authors}}</h4> on
                     <time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time>, tagged in {{#foreach tags}}<span class="post-tag-{{slug}}">{{#if @first}}{{else}}, {{/if}}<a href="/tag/{{slug}}">{{name}}</a></span>{{/foreach}}
                 </div>
             </div>
@@ -118,9 +118,9 @@
                         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                         <span class="hidden">Facebook</span>
                     </a>
-                    <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                        <span class="hidden">Google+</span>
+                    <a class="icon-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'linkedin-share', 'width=490,height=530');return false;">
+                        <i class="fa fa-linkedin"></i>
                     </a>
                 </section>
             </footer>
@@ -129,22 +129,20 @@
                 <div class="isLeft">
                     <h5 class="index-headline featured"><span>Written by</span></h5>
                     <section class="author">
-                        <div class="author-image" style="background-image: url({{author.profile_image}})">Blog Logo</div>
-                        <h4>{{author}}</h4>
-                        <p class="bio">{{author.bio}}</p>
+                        <div class="author-image" style="background-image: url({{authors.[#].profile_image}})">Blog Logo</div>
+                        <h4>{{authors}}</h4>
+                        <p class="bio">{{authors.[#].bio}}</p>
                         <hr>
                         <p class="published">Published <time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></p>
                     </section>
                 </div>
                 {{/post}}
                 <div class="isRight">
-                    <h5 class="index-headline featured"><span>Supported by</span></h5>
+                    <!--h5 class="index-headline featured"><span>Supported by</span></h5-->
                     <footer class="site-footer">
-                        <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org"> Ghost</a></section>
-                        <a class="subscribe" href="{{@blog.url}}/rss/"><span class="tooltip">You should subscribe to my RSS feed.</span></a>
+                        <a class="subscribe" href="{{@site.url}}/rss/"><span class="tooltip">Subscribe via RSS</span></a>
                         <div class="inner">
-                             <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}}<br>All rights reserved.</section>
-
+                             {{> copyright}}
                         </div>
                     </footer>
                 </div>
@@ -155,12 +153,12 @@
 </main>
 
 <div class="bottom-closer">
-    <div class="background-closer-image" {{#if @blog.cover_image}}style="background-image: url({{blog.cover_image}})"{{/if}}>
+    <div class="background-closer-image" {{#if @site.cover_image}} style="background-image: url({{@site.cover_image}})" {{else}} style="background-color: #121C4F" {{/if}}>
         Image
     </div>
     <div class="inner">
-        <h1 class="blog-title">{{@blog.title}}</h1>
-        <h2 class="blog-description">{{@blog.description}}</h2>
+        <h1 class="blog-title">{{@site.title}}</h1>
+        <h2 class="blog-description">{{@site.description}}</h2>
         <a href="/" class="btn">Back to Overview</a>
     </div>
 </div>
