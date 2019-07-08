@@ -128,10 +128,16 @@
             <div class="bottom-teaser cf">
                 <div class="isLeft">
                     <h5 class="index-headline featured"><span>Written by</span></h5>
-                    <section class="author">
-                        <div class="author-image" style="background-image: url({{authors.[#].profile_image}})">Blog Logo</div>
-                        <h4>{{authors}}</h4>
-                        <p class="bio">{{authors.[#].bio}}</p>
+                    {{#if authors}}
+                        {{#foreach authors}}
+                        <section class="author">
+                            <div class="author-image" style="background-image: url({{profile_image}})">Blog Logo</div>
+                            <h4>{{name}}</h4>
+                            <p class="bio">{{bio}}</p>
+                        </section>
+                        {{/foreach}}
+                    {{/if}}
+                    <section>
                         <hr>
                         <p class="published">Published <time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></p>
                     </section>

@@ -533,10 +533,12 @@ body {
     padding: 0;
     display: block;
     width: 15%;
-    margin: 16px 0 16px 100px;
+    margin: 16px 0 16px 0;
     border: 0px solid #ddd;
     border-top: 1px solid #ddd; }
   .post .bottom-teaser .isLeft {
+    display: flex;
+    flex-direction: column;
     float: left;
     width: 47%;
     -webkit-box-sizing: border-box;
@@ -546,6 +548,8 @@ body {
       .post .bottom-teaser .isLeft {
         width: 100%;
         padding-bottom: 32px; } }
+    .post .bottom-teaser .isLeft .author {
+      padding: 10px 0; }
     .post .bottom-teaser .isLeft .index-headline {
       padding-bottom: 32px; }
     .post .bottom-teaser .isLeft a {
@@ -577,7 +581,8 @@ body {
       margin: 0;
       padding-left: 100px; }
       .post .bottom-teaser .isLeft p.published {
-        color: #999; }
+        color: #999;
+        padding-left: 0; }
   .post .bottom-teaser .isRight {
     align-self: flex-end;
     float: right;

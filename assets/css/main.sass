@@ -518,16 +518,20 @@ body
 			padding: 0
 			display: block
 			width: 15%
-			margin: 16px 0 16px 100px
+			margin: 16px 0 16px 0
 			border: 0px solid #ddd
 			border-top: 1px solid #ddd
 		.isLeft
+			display: flex
+			flex-direction: column
 			float: left
 			width: 47%
 			@include box-sizing(border-box)
 			@include respond-to(800)
 				width: 100%
 				padding-bottom: $rs*2
+			.author
+				padding: 10px 0
 			.index-headline
 				padding-bottom: 32px
 			a
@@ -560,6 +564,7 @@ body
 				padding-left: 100px
 				&.published
 					color: #999
+					padding-left: 0
 		.isRight
 			align-self: flex-end
 			float: right
